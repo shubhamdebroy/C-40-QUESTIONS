@@ -1,26 +1,21 @@
 #include <stdio.h>
-int main() {
-    int rows, cols;
-    printf("Enter the number of rows and columns: ");
-    scanf("%d %d", &rows, &cols);
-    int matrix[rows][cols], transpose[cols][rows];
-    printf("Enter the elements of the matrix:\n");
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            scanf("%d", &matrix[i][j]);
-        }
+int main(){
+    int arr[100], n, i, pos;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter %d elements:\n", n);
+    for(i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
     }
-    for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-            transpose[j][i] = matrix[i][j];
-        }
+    printf("Enter position to delete (1 to %d): ", n);
+    scanf("%d", &pos);
+    for (i = pos - 1; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
     }
-    printf("Transpose of the matrix:\n");
-    for (int i = 0; i < cols; i++) {
-        for (int j = 0; j < rows; j++) {
-            printf("%d ", transpose[i][j]);
-        }
-        printf("\n");
+    n--;
+    printf("Array after deletion:\n");
+    for(i = 0; i < n; i++){
+        printf("%d ", arr[i]);
     }
     return 0;
 }
